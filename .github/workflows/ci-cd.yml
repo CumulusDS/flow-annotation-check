@@ -75,6 +75,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install NPM Packages
         run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn transpile
       - name: Publish
         run: npm publish
   yarn:
