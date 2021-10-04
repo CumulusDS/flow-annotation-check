@@ -35,6 +35,7 @@ function stat(file: string): Promise<{size: number}> {
       if (error) {
         reject(error);
       } else {
+        // $FlowFixMe[class-object-subtyping]
         resolve(stats);
       }
     });
@@ -47,6 +48,7 @@ function read(file: string): Promise<string> {
       if (error) {
         reject(error);
       } else {
+        // $FlowFixMe[class-object-subtyping]
         resolve(data);
       }
     });

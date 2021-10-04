@@ -13,66 +13,67 @@ exports[`getParser should print the help message 1`] = `
             [-i INCLUDE] [-x EXCLUDE] [--validate]
             [root]
 
-Positional arguments:
-  root                  The root directory to glob files from. (default: '\\".
-                        \\"')
+positional arguments:
+  root                  The root directory to glob files from. (default:
+                        '\\".\\"')
 
-Optional arguments:
-  -h, --help            Show this help message and exit.
-  -v, --version         Show program's version number and exit.
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show program's version number and exit
   -f FLOW_PATH, --flow-path FLOW_PATH
                         The path to the flow command. (default: '\\"flow\\"')
   -o {text,html-table,csv,junit,summary,json}, --output {text,html-table,csv,junit,summary,json}
-                        Output format for status/filename pairs. (default: 
+                        Output format for status/filename pairs. (default:
                         '\\"text\\"')
-  --show-summary        Include summary data. Does not apply to saved file 
+  --show-summary        Include summary data. Does not apply to saved file
                         output or jUnit output. (default: 'false')
   --summary-only        Unused. Switch to --show-summary instead.
   --list-files {all,flow,flowstrict,flowstrictlocal,noflow,flowweak,none}
                         Filter the list of files based on the reported status.
-                         See '--level=flowweak' or '--allow-weak' to control 
-                        when flow-weak files are included or excluded from 
-                        the 'flow' or 'noflow' checks. (default: '\\"all\\"')
+                        See '--level=flowweak' or '--allow-weak' to control
+                        when flow-weak files are included or excluded from the
+                        'flow' or 'noflow' checks. (default: '\\"all\\"')
   --html-file HTML_FILE
-                        Save the html table output directly into HTML_FILE. 
+                        Save the html table output directly into HTML_FILE.
                         (default: 'null')
-  --csv-file CSV_FILE   Save CSV output directly into CSV_FILE. (default: 
+  --csv-file CSV_FILE   Save CSV output directly into CSV_FILE. (default:
                         'null')
   --junit-file JUNIT_FILE
-                        Save jUnit output directly into JUNIT_FILE. (default: 
+                        Save jUnit output directly into JUNIT_FILE. (default:
                         'null')
   --json-file JSON_FILE
-                        Save JSON output directly into JSON_FILE. (default: 
+                        Save JSON output directly into JSON_FILE. (default:
                         'null')
   --summary-file SUMMARY_FILE
-                        Save a text-format summary of the report into 
+                        Save a text-format summary of the report into
                         SUMMARY_FILE. (default: 'null')
   -a, --absolute        Report absolute path names. (default: 'false')
   --level {any,flowweak,flow,flowstrictlocal,flowstrict}
-                        The minimum strictness required in each file. Levels 
-                        progress in ascending order through: 'any > weak > 
-                        flow > strict-local > strict'. The program will exit 
-                        1 if any file has a level lower than this setting. 
+                        The minimum strictness required in each file. Levels
+                        progress in ascending order through: 'any > weak >
+                        flow > strict-local > strict'. The program will exit 1
+                        if any file has a level lower than this setting.
                         (default: '\\"flow\\"')
-  --allow-weak          Alias for '--level=flowweak'. Consider '@flow weak' 
-                        as an accepable annotation. See https://flowtype.
-                        org/docs/existing.html#weak-mode for reasons why this 
-                        should only be used temporarily. (default: 'false')
-  --require-strict-local
-                        Alias for '--level=flowstrictlocal'. Consider '@flow 
-                        strict-local' as the minimum allowable level. 
+  --allow-weak          Alias for '--level=flowweak'. Consider '@flow weak' as
+                        an accepable annotation. See
+                        https://flowtype.org/docs/existing.html#weak-mode for
+                        reasons why this should only be used temporarily.
                         (default: 'false')
-  --require-strict      Alias for '--level=flowstrict'. Consider '@flow 
-                        strict' as the only accepable annotation. (default: 
+  --require-strict-local
+                        Alias for '--level=flowstrictlocal'. Consider '@flow
+                        strict-local' as the minimum allowable level.
+                        (default: 'false')
+  --require-strict      Alias for '--level=flowstrict'. Consider '@flow
+                        strict' as the only accepable annotation. (default:
                         'false')
   -i INCLUDE, --include INCLUDE
-                        Glob for files to include. Can be set multiple times. 
+                        Glob for files to include. Can be set multiple times.
                         (default: '[\\"**/*.js\\"]')
   -x EXCLUDE, --exclude EXCLUDE
-                        Glob for files to exclude. Can be set multiple times. 
-                        (default: '[\\"+(node_modules build flow-typed)/**/*.
-                        js\\"]')
-  --validate            Run in validation mode. This injects errors into 
+                        Glob for files to exclude. Can be set multiple times.
+                        (default:
+                        '[\\"+(node_modules|build|flow-typed)/**/*.js\\"]')
+  --validate            Run in validation mode. This injects errors into
                         globbed files and checks the flow-annotation status.
 "
 `;

@@ -14,7 +14,8 @@ function printDefault(value: any) {
   return `(default: '${JSON.stringify(value)}')`;
 }
 
-// flowlint-next-line unclear-type:off
+// $FlowFixMe[unclear-type]
+// $FlowFixMe[value-as-type]
 export default function getParser(options?: Object = {}): ArgumentParser {
   const parser = new ArgumentParser({
     addHelp: true,

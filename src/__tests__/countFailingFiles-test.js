@@ -36,7 +36,7 @@ describe('countFailingFiles', () => {
 
   it('should return 0 for invalid level values', () => {
     const flags = {...DEFAULT_FLAGS, level: 'unknown'};
-    // $FlowExpectedError: Overriding for test coverage
+    // $FlowFixMe Overriding for test coverage
     expect(countFailingFiles(report, flags)).toBe(0);
   });
 });

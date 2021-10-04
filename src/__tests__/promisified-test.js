@@ -20,7 +20,7 @@ const childProcess = require('child_process');
 const fs = require('fs');
 
 function _mock(mockFn) {
-  // $FlowExpectedError: escape hatch to silence _mockflow
+  // $FlowFixMe[unclear-type]: escape hatch to silence _mockflow
   return (mockFn: any);
 }
 

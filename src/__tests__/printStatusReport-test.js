@@ -132,7 +132,7 @@ describe('printStatusReport', () => {
       global.Date = jest.fn(() => ({
         toISOString: () => '-mock date-',
       }));
-      // $FlowExpectedError: Overriding for consistency across environments
+      // $FlowFixMe: Overriding for consistency across environments
       os.hostname = jest.fn(() => 'test-host');
     });
 
