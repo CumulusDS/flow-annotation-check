@@ -1,5 +1,5 @@
 {
-  "name": "flow-annotation-check",
+  "name": "@cumulusds/flow-annotation-check",
   "version": "1.11.4",
   "description": "Check your files for the presence of the `@flow` and `@flow weak` annotations",
   "author": {
