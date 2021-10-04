@@ -4,3 +4,4 @@ npm-debug.log
 flow-coverage/
 coverage/
 package-lock.json
+.idea/
