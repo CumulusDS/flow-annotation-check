@@ -23,9 +23,7 @@
   "engines": {
     "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
   },
-  "bin": {
-    "flow-annotation-check": "./bin/flow-annotation-check.js"
-  },
+  "bin": "./bin/flow-annotation-check.js",
   "files": [
     "bin",
     "lib"
@@ -47,16 +45,37 @@
     "jest": "^27.2.4"
   },
   "scripts": {
-    "preversion": "npm run clean && npm run test && npm run transpile",
-    "postversion": "git push && git push --tags && npm publish",
-    "test": "flow check && jest",
-    "prebuild": "npm run clean && npm run test",
     "build": "npm run transpile",
     "clean": "rm -Rf npm-debug.log lib coverage flow-coverage",
-    "flow:check": "flow check && flow check ./src/__tests__/fixtures",
     "flow:annotations": "npm run transpile && bin/flow-annotation-check.js",
+    "flow:check": "flow check && flow check ./src/__tests__/fixtures",
     "flow:coverage": "npx flow-coverage-report",
-    "transpile": "rm -Rf lib/* && babel src --out-dir lib --ignore \"**/__tests__\""
+    "git:commit": "git add package.json .yarn/versions && git commit -m v${npm_package_version}",
+    "git:commit:publish": "git add package.json .yarn/versions/* && git commit -m v${npm_package_version}",
+    "git:commit:version": "git add .yarn/versions/* && git commit -m 'Deferred version bump'",
+    "git:tag": "git tag -a v${npm_package_version} -m v${npm_package_version}",
+    "npm:tag:remove": "yarn npm tag remove ${npm_package_name} $0",
+    "postversion": "git push && git push --tags && npm publish",
+    "prebuild": "npm run clean && npm run test",
+    "prepack": "yarn run build && yarn run build:flowtypes",
+    "prepare": "yarn clean && yarn build",
+    "preversion": "npm run clean && npm run test && npm run transpile",
+    "publish:major": "yarn version major && yarn publish:sync",
+    "publish:minor": "yarn version minor && yarn publish:sync",
+    "publish:patch": "yarn version patch && yarn publish:sync",
+    "publish:preminor": "yarn version preminor && yarn publish:sync",
+    "publish:prepatch": "yarn version prepatch && yarn publish:sync",
+    "publish:prerelease": "yarn npm publish",
+    "publish:sync": "yarn run git:commit && yarn run git:tag && yarn git:push",
+    "test": "flow check && jest",
+    "transpile": "rm -Rf lib/* && babel src --out-dir lib --ignore \"**/__tests__\"",
+    "version:feature": "yarn version ${npm_package_version}-$0.$(./build/git-distance).g$(git rev-parse --short HEAD)",
+    "version:major": "yarn version --new-version major",
+    "version:minor": "yarn version --new-version minor",
+    "version:patch": "yarn version --new-version patch",
+    "version:preminor": "yarn version --new-version preminor",
+    "version:prepatch": "yarn version --new-version prepatch",
+    "version:prerelease": "yarn version ${npm_package_version}"
   },
   "babel": {
     "presets": [
@@ -96,5 +115,6 @@
     "testPathIgnorePatterns": [
       "__tests__/fixtures"
     ]
-  }
+  },
+  "packageManager": "yarn@3.8.7"
 }
